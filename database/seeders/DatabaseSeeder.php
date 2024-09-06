@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\OrderProducts;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FoodTemplateSeeder::class);
         $this->call(FoodSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(OrderProductsSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }
