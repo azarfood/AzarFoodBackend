@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-class TransactionType
+Enum TransactionType
 {
     const POSITIVE = 'positive';
     const NEGATIVE = 'negative';
