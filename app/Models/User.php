@@ -47,9 +47,14 @@ class User extends Authenticatable
     }
 
     //region Relations
-    public function orders():HasMany
+    public function orders(): HasMany
     {
-        return $this->hasMany(Order::class , 'user_id');
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class, 'user_id');
     }
 
     //endregion
