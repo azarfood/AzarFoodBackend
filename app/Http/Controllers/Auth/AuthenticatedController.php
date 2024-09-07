@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -39,6 +40,17 @@ class AuthenticatedController extends Controller
         $token = $user->createToken('auth-token')->plainTextToken;
         return response()->json([
             'auth_token' => $token
+        ]);
+    }
+
+    public function destroy(Request $request): JsonResponse
+    {
+        $user = Auth::guard()->user();
+
+        $user->tokens()->delete();
+
+        return response()->json([
+            'massage' => "logout"
         ]);
     }
 }
