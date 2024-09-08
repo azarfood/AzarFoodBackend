@@ -1,0 +1,21 @@
+<?php
+namespace {{namespace}};
+
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+
+class {{class}} extends Controller
+{
+    public function __invoke({{method}}{{endpoint}}Request          $request,
+                             {{endpoint}}                   ${{lcEndpoint}},
+                             {{method}}{{endpoint}}ServiceInterface ${{lcMethod}}{{endpoint}}Service): JsonResponse
+    {
+        $data = Request{{method}}{{endpoint}}DTO::fromRequest(
+            {{lcEndpoint}}: ${{lcEndpoint}},
+        );
+
+        $responseData = ${{lcMethod}}{{endpoint}}Service->{{lcMethod}}($data);
+
+        return Response::success($responseData);
+    }
+}

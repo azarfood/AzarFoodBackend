@@ -1,0 +1,23 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Models\{{endpoint}};
+
+class hello
+{
+    public function __construct(
+        public readonly {{endpoint}} ${{lcEndpoint}},
+    )
+    {
+    }
+
+    public static function fromRequest(
+        {{endpoint}} ${{lcEndpoint}}
+    ): self
+    {
+        return new self(
+            {{lcEndpoint}}: ${{lcEndpoint}}
+        );
+    }
+}

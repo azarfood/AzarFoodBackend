@@ -1,0 +1,28 @@
+<?php
+
+namespace App\DTO\{{endpoint}};
+
+use App\Models\{{endpoint}};
+use RuntimeException;
+use Spatie\DataTransferObject\Exceptions\UnknownProperties;
+
+class {{endpoint}}DTO
+{
+    public function __construct(
+        public string $id,
+    )
+    {
+    }
+
+    public static function fromModel({{endpoint}} ${{lcEndpoint}}): {{endpoint}}DTO
+    {
+        try {
+            return new self(
+                id: ${{lcEndpoint}}->id,
+            );
+        } catch (UnknownProperties $e) {
+            throw  new RuntimeException($e->getMessage());
+        }
+    }
+}
+

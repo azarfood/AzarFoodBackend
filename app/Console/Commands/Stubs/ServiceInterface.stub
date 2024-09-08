@@ -1,0 +1,11 @@
+<?php
+
+namespace {{namespace}};
+
+use App\DTO\{{return_type}};
+use App\DTO\{{name}}\Request\Request{{method}}{{name}}DTO;
+
+interface {{class}}
+{
+    public function {{lcMethod}}(Request{{method}}{{name}}DTO ${{lcName}}DTO): {{return_typeClass}};
+}

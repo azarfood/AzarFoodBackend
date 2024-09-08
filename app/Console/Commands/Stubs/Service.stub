@@ -1,0 +1,14 @@
+<?php
+
+namespace {{namespace}};
+
+use App\DTO\{{return_type}};
+use App\DTO\{{endpoint}}\Request\Request{{method}}{{endpoint}}DTO;
+
+class {{class}} implements {{method}}{{endpoint}}ServiceInterface
+{
+    public function {{lcMethod}}(Request{{method}}{{endpoint}}DTO ${{lcEndpoint}}DTO): {{return_typeClass}}
+    {
+        return {{return_typeClass}}::fromModel();
+    }
+}
