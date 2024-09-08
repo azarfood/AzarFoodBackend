@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -51,6 +52,33 @@ class AuthenticatedController extends Controller
 
         return response()->json([
             'massage' => "logout"
+        ]);
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    public function password(ChangePasswordRequest $request): JsonResponse
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        if (
+            !Hash::check(
+                $request->old_password,
+                $user->password
+            )
+        ) {
+            throw ValidationException::withMessages([
+                'old_password' => [
+                    'password is incorrect.'
+                ],
+            ]);
+        }
+
+        $user->password = $request->new_password;
+        $user->save();
+        return response()->json([
+            'massage' => 'password changed successfully'
         ]);
     }
 }

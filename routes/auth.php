@@ -11,3 +11,6 @@ Route::post('logout', [AuthenticatedController::class, 'destroy'])
     ->middleware("auth:sanctum")
     ->name('logout');
 
+Route::post('change-password', [AuthenticatedController::class, 'password'])
+    ->middleware("auth:sanctum")
+    ->name('change.password');
