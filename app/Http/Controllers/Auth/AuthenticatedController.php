@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Validation\ValidationException;
 
 class AuthenticatedController extends Controller
@@ -33,7 +34,7 @@ class AuthenticatedController extends Controller
         ) {
             throw ValidationException::withMessages([
                 'username' => [
-                    'The provided credentials are incorrect.'
+                    __('The provided credentials are incorrect.')
                 ],
             ]);
         }
@@ -53,7 +54,7 @@ class AuthenticatedController extends Controller
         $user->tokens()->delete();
 
         return Response::success([
-            'massage' => "logout",
+            'massage' => __("logout"),
         ]);
     }
 
@@ -72,7 +73,7 @@ class AuthenticatedController extends Controller
         ) {
             throw ValidationException::withMessages([
                 'old_password' => [
-                    'password is incorrect.'
+                    __('The provided password was incorrect.')
                 ],
             ]);
         }
@@ -81,7 +82,7 @@ class AuthenticatedController extends Controller
         $user->save();
         return Response::success(
             null,
-            'password changed successfully'
+            __('password changed successfully')
         );
     }
 }
