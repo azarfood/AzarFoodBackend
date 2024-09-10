@@ -20,20 +20,11 @@ class ResponseServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Response::macro('success', static fn($data, $code = 200) => response()->json(
-            $data,
-            $code,
+        Response::macro('success', static fn($data, $massage = null, $code = 200) => response()->json(
             [
-                'Content-Type' => 'application/json;charset=UTF-8',
-                'Charset' => 'utf-8',
-            ],
-            JSON_UNESCAPED_UNICODE
-        ));
-
-        Response::macro('error', static fn($message, $data, $code = 500) => response()->json(
-            [
-                'error' => $message,
-                'data' => $data,
+                "success" => true,
+                "massage" => $massage,
+                "result" => $data,
             ],
             $code,
             [
@@ -43,9 +34,10 @@ class ResponseServiceProvider extends ServiceProvider
             JSON_UNESCAPED_UNICODE
         ));
 
-        Response::macro('message', static fn($message, $code = 400) => response()->json(
+        Response::macro('error', static fn($error, $code = 400) => response()->json(
             [
-                'message' => $message,
+                'success' => false,
+                'error' => $error
             ],
             $code,
             [
