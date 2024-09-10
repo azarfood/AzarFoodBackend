@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property mixed $password
+ * @property mixed $student_code
+ * @property mixed $national_code
+ * @property mixed $type
+ * @property mixed $first_name
+ * @property mixed $last_name
+ * @property mixed $avatar_id
  */
 class User extends Authenticatable
 {
