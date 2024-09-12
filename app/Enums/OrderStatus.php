@@ -4,7 +4,8 @@ namespace App\Enums;
 
 enum OrderStatus
 {
+    const RESERVED = 'reserved';
+    const CANCELED = 'canceled';
     const DELIVERED = 'delivered';
-    const PENDING = 'pending';
-    const STATUSES = [self::DELIVERED, self::PENDING];
+    const STATUSES = [self::RESERVED, self::CANCELED, self::DELIVERED];
 }
