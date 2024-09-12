@@ -20,6 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable
 {
+    protected $primaryKey = 'student_code';
     use HasFactory, Notifiable,HasApiTokens;
 
     /**
