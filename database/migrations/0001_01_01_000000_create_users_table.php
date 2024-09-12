@@ -13,8 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('student_code')->unique();
+            $table->unsignedBigInteger('student_code')->unique()->primary();
             $table->enum('type' , UserType::TYPES);
             $table->string('national_code')->unique();
             $table->string('first_name');

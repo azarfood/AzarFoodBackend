@@ -21,7 +21,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            "user_id" => User::all()->random()->id,
+            "user_id" => User::all()->random()->student_code,
             "status" => OrderStatus::STATUSES[rand(0, count(OrderStatus::STATUSES) - 1)],
             "meal" => Meal::MEALS[rand(0, count(Meal::MEALS)- 1) ],
             "date" => Carbon::now()->timestamp,

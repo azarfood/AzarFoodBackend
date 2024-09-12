@@ -17,13 +17,13 @@ return new class extends Migration {
             $table->unsignedBigInteger("user_id");
             $table->enum("status", OrderStatus::STATUSES);
             $table->enum("meal", Meal::MEALS);
-            $table->date("date");
+            $table->integer("date");
             $table->integer("total_cost");
             $table->integer("rating");
             $table->timestamps();
 
             $table->foreign('user_id')
-                ->references('id')
+                ->references('student_code')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
