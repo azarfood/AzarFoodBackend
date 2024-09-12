@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Services\Order\OrderHistory\OrderHistoryServiceConcrete;
 use App\Services\Order\OrderHistory\OrderHistoryServiceInterface;
+use App\Services\Order\OrderList\OrderListServiceConcrete;
+use App\Services\Order\OrderList\OrderListServiceInterface;
 use App\Services\User\ShowUser\ShowUserServiceConcrete;
 use App\Services\User\ShowUser\ShowUserServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +21,10 @@ class BindServiceProvider extends ServiceProvider
         $this->app->bind(
             OrderHistoryServiceInterface::class,
             OrderHistoryServiceConcrete::class
+        );
+        $this->app->bind(
+            OrderListServiceInterface::class,
+            OrderListServiceConcrete::class
         );
     }
 }
