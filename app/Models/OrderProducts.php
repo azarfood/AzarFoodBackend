@@ -19,8 +19,9 @@ class OrderProducts extends Model
     //region Relations
     public function food(): BelongsTo
     {
-        return $this->belongsTo(Food::class, 'food_id');
+        return $this->belongsTo(Food::class, 'product_id');
     }
+
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class, 'order_id');
