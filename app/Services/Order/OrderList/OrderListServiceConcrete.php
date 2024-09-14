@@ -4,7 +4,6 @@ namespace App\Services\Order\OrderList;
 
 use App\DTO\Order\OrderDTO;
 use App\DTO\Order\OrderProductsDTO;
-use App\DTO\Pagination\Pagination;
 use App\Enums\OrderStatus;
 use App\Models\Order;
 use App\Models\OrderProducts;
@@ -13,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderListServiceConcrete implements OrderListServiceInterface
 {
-    public function index(): Pagination
+    public function index(): array
     {
         /** @var User $user */
         $user = Auth::user();
@@ -30,8 +29,6 @@ class OrderListServiceConcrete implements OrderListServiceInterface
                 order: $order, orderProducts: $products
             );
         });
-        return Pagination::fromModelPaginatorAndData(
-            paginator: $userOrders, data: $orders->toArray()
-        );
+        return $orders->toArray();
     }
 }
