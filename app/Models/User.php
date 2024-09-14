@@ -17,6 +17,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property mixed $first_name
  * @property mixed $last_name
  * @property mixed $avatar_id
+ * @property mixed $transactions
  */
 class User extends Authenticatable
 {
