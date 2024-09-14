@@ -34,10 +34,11 @@ class ResponseServiceProvider extends ServiceProvider
             JSON_UNESCAPED_UNICODE
         ));
 
-        Response::macro('error', static fn($error, $code = 400) => response()->json(
+        Response::macro('error', static fn($error , $code = 400, $massage = null) => response()->json(
             [
                 'success' => false,
-                'error' => $error
+                'error' => $error,
+                'massage' => $massage
             ],
             $code,
             [

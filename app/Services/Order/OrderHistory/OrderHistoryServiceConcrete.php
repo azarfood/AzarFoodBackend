@@ -4,7 +4,6 @@ namespace App\Services\Order\OrderHistory;
 
 use App\DTO\Order\OrderDTO;
 use App\DTO\Order\OrderProductsDTO;
-use App\DTO\Pagination\Pagination;
 use App\Enums\OrderStatus;
 use App\Models\Order;
 use App\Models\OrderProducts;
@@ -14,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderHistoryServiceConcrete implements OrderHistoryServiceInterface
 {
-    public function index(): Pagination
+    public function index(): array
     {
         /** @var User $user */
         $user = Auth::user();
@@ -35,8 +34,7 @@ class OrderHistoryServiceConcrete implements OrderHistoryServiceInterface
                 order: $order, orderProducts: $products
             );
         });
-        return Pagination::fromModelPaginatorAndData(
-            paginator: $userOrders, data: $orders->toArray()
-        );
+
+        return $orders->toArray();
     }
 }
