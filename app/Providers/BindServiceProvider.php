@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Food\IndexAllFoods\IndexAllFoodsServiceConcrete;
+use App\Services\Food\IndexAllFoods\IndexAllFoodsServiceInterface;
 use App\Services\Order\OrderHistory\OrderHistoryServiceConcrete;
 use App\Services\Order\OrderHistory\OrderHistoryServiceInterface;
 use App\Services\Order\OrderList\OrderListServiceConcrete;
@@ -37,6 +39,10 @@ class BindServiceProvider extends ServiceProvider
         $this->app->bind(
             IndexRestaurantServiceInterface::class,
             IndexRestaurantServiceConcrete::class
+        );
+        $this->app->bind(
+            IndexAllFoodsServiceInterface::class,
+            IndexAllFoodsServiceConcrete::class
         );
     }
 }
