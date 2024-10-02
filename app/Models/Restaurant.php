@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
  * @property mixed $banner_url
  * @property mixed $address
  * @property mixed $logo
+ * @property mixed $foods
  */
 class Restaurant extends Model
 {
