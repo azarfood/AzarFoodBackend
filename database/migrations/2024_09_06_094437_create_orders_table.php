@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\Meal;
+use App\Enums\OrderArrivalTime;
 use App\Enums\OrderStatus;
 use App\Enums\Place;
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +21,7 @@ return new class extends Migration {
             $table->enum("meal", Meal::MEALS);
             $table->integer("date");
             $table->enum("place" , Place::PLACES);
+            $table->enum("time" , OrderArrivalTime::TIMES);
             $table->integer("total_cost");
             $table->integer("rating")->nullable();
             $table->timestamps();
