@@ -22,8 +22,13 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        "meal",
-        "rating"
+        'user_id',
+        'status',
+        'meal',
+        'date',
+        'total_cost',
+        'place',
+        'time',
     ];
 
     //region Relations

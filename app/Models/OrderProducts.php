@@ -16,7 +16,8 @@ class OrderProducts extends Model
 
     protected $table = 'order_products';
     protected $fillable = [
-        'food_id',
+        'product_id',
+        'order_id',
         'count'
     ];
 
