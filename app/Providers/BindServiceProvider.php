@@ -8,6 +8,8 @@ use App\Services\Food\IndexFood\IndexFoodServiceConcrete;
 use App\Services\Food\IndexFood\IndexFoodServiceInterface;
 use App\Services\Food\ShowFood\ShowFoodServiceConcrete;
 use App\Services\Food\ShowFood\ShowFoodServiceInterface;
+use App\Services\Order\CreateOrder\CreateOrderServiceConcrete;
+use App\Services\Order\CreateOrder\CreateOrderServiceInterface;
 use App\Services\Order\OrderHistory\OrderHistoryServiceConcrete;
 use App\Services\Order\OrderHistory\OrderHistoryServiceInterface;
 use App\Services\Order\OrderList\OrderListServiceConcrete;
@@ -61,6 +63,10 @@ class BindServiceProvider extends ServiceProvider
         $this->app->bind(
             ShowFoodServiceInterface::class,
             ShowFoodServiceConcrete::class
+        );
+        $this->app->bind(
+            CreateOrderServiceInterface::class,
+            CreateOrderServiceConcrete::class
         );
     }
 }
