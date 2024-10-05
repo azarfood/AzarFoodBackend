@@ -2,6 +2,7 @@
 
 use App\Enums\Meal;
 use App\Enums\OrderStatus;
+use App\Enums\Place;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,8 +19,9 @@ return new class extends Migration {
             $table->enum("status", OrderStatus::STATUSES);
             $table->enum("meal", Meal::MEALS);
             $table->integer("date");
+            $table->enum("place" , Place::PLACES);
             $table->integer("total_cost");
-            $table->integer("rating");
+            $table->integer("rating")->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
