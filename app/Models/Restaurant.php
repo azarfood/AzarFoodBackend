@@ -47,7 +47,7 @@ class Restaurant extends Model
 
     public function scopeFilterByCollection(Builder $query, $collection): void
     {
-        if ($collection == FoodCollection::Best) {
+        if (($collection == FoodCollection::Best) or ($collection == FoodCollection::Popular)) {
             $q = DB::table('restaurants')
                 ->select('restaurants.id')
                 ->join('foods', 'restaurants.id', '=', 'foods.restaurant_id')
@@ -57,6 +57,21 @@ class Restaurant extends Model
                     '=', 'orders.id')
                 ->groupBy('restaurants.id')
                 ->havingRaw('AVG(orders.rating) >= ?', [2])
+                ->get();
+            /** @var Collection $q */
+            $q = $q->map(function ($item) {
+                return $item->id;
+            });
+            $query->whereIn('id', $q);
+        } elseif ($collection == FoodCollection::Selling) {
+            $q = DB::table('restaurants')
+                ->select('restaurants.id', DB::raw('COUNT(order_products.id) as order_count'))
+                ->join('foods', 'restaurants.id', '=', 'foods.restaurant_id')
+                ->leftJoin('order_products', 'foods.id',
+                    '=', 'order_products.product_id')
+                ->groupBy('foods.id')
+                ->orderBy('order_count', 'desc')
+                ->limit(10)
                 ->get();
             /** @var Collection $q */
             $q = $q->map(function ($item) {
