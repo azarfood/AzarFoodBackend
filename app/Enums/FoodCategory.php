@@ -4,7 +4,11 @@ namespace App\Enums;
 
 enum FoodCategory
 {
-    const FASTFOOD = 'fastfood';
-    const SONNATI = 'sonnati';
-    const CATEGORIES = [self::FASTFOOD, self::SONNATI];
+    const PIZZA = 'pizza';
+    const BURGER = 'burger';
+    const IRANIAN = 'iranian';
+    const FRIED_FOOD = 'fried_food';
+    const SANDWICH = 'sandwich';
+    const SALAD = 'salad';
+    const CATEGORIES = [self::PIZZA, self::BURGER, self::IRANIAN, self::FRIED_FOOD, self::SALAD, self::SANDWICH];
 }
