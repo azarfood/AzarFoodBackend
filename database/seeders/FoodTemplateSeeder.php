@@ -20,6 +20,20 @@ class FoodTemplateSeeder extends Seeder
                 "category" => FoodCategory::SONNATI
             ],
             [
+                "name" => "کباب",
+                "image" => "image",
+                "description" => "گوشت  گوساله. نوش جونت:)",
+                "type" => FoodType::FOOD,
+                "category" => FoodCategory::SONNATI
+            ],
+            [
+                "name" => "جوجه",
+                "image" => "image",
+                "description" => "جوجه دا دای چی بگم :/. نوش جونت:)",
+                "type" => FoodType::FOOD,
+                "category" => FoodCategory::SONNATI
+            ],
+            [
                 "name" => "قیمه",
                 "image" => "image",
                 "description" => "گوشت و لبه و سیب زمینی . بخور نوش جونت:)",
@@ -34,9 +48,30 @@ class FoodTemplateSeeder extends Seeder
                 "category" => FoodCategory::FASTFOOD
             ],
             [
+                "name" => "بندری",
+                "image" => "image",
+                "description" => "اجغ وجغ تند . بخور نوش جونت:)",
+                "type" => FoodType::FOOD,
+                "category" => FoodCategory::FASTFOOD
+            ],
+            [
+                "name" => "فلافل",
+                "image" => "image",
+                "description" => "اجغ وجغ جنوب . بخور نوش جونت:)",
+                "type" => FoodType::FOOD,
+                "category" => FoodCategory::FASTFOOD
+            ],
+            [
                 "name" => "نوشابه",
                 "image" => "image",
                 "description" => "ساری نوشابه",
+                "type" => FoodType::PRODUCT,
+                "category" => FoodCategory::FASTFOOD
+            ],
+            [
+                "name" => "آب",
+                "image" => "image",
+                "description" => "یزیده لعنت",
                 "type" => FoodType::PRODUCT,
                 "category" => FoodCategory::FASTFOOD
             ],

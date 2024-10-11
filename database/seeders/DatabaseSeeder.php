@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FoodSeeder::class);
         $this->call(OrderSeeder::class);
         $this->call(OrderProductsSeeder::class);
+        $this->call(TransactionSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }
