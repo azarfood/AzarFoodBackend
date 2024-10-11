@@ -12,10 +12,11 @@ class FoodDTO
     public function __construct(
         public string        $id,
         public string        $name,
+        public string        $price,
         public ?string       $rating,
         public string        $image,
         public RestaurantDTO $restaurant,
-        public string        $description,
+        public string        $ingredients,
     )
     {
     }
@@ -26,10 +27,11 @@ class FoodDTO
             return new self(
                 id: $food->id,
                 name: $food->template->name,
+                price: $food->cost,
                 rating: $food->rating,
-                image: $food->template->image,
+                image: asset($food->template->image),
                 restaurant: RestaurantDTO::fromModel($food->restaurant),
-                description: $food->template->description,
+                ingredients: $food->template->description,
             );
         } catch (UnknownProperties $e) {
             throw  new RuntimeException($e->getMessage());

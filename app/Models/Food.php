@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
  * @property mixed $template
  * @property mixed $rating
  * @property mixed $restaurant
+ * @property mixed $cost
  */
 class Food extends Model
 {
